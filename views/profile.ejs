@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <title>Perfil</title>
-</head>
-<body>
-  <div class="container mt-5">
-    <h1>Hola, <%= user.name %>!</h1>
-    <p>Email: <%= user.email %></p>
-    <a href="/events/create" class="btn btn-primary">Crear un nuevo evento</a>
-    <a href="/auth/logout" class="btn btn-danger">Cerrar sesión</a>
-  </div>
-</body>
-</html>
+<h1>Hola, <%= user.name %>!</h1>
+<p>Email: <%= user.email %></p>
+<a href="/events/create" class="btn btn-primary">Crear un nuevo evento</a>
+<a href="/events/calendar" class="btn btn-secondary">Ver calendario de eventos</a>
+<a href="/auth/logout" class="btn btn-danger">Cerrar sesión</a>

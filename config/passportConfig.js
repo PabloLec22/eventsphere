@@ -11,6 +11,7 @@ passport.use(new GoogleStrategy({
     let user = await User.findOne({ googleId: profile.id });
 
     if (user) {
+      console.log('Usuario encontrado:', user);
       return done(null, user); // Si el usuario existe, lo retornamos
     } else {
       user = new User({
@@ -20,15 +21,17 @@ passport.use(new GoogleStrategy({
       });
 
       await user.save();
+      console.log('Nuevo usuario creado:', user);
       return done(null, user); // Retornar el nuevo usuario
     }
   } catch (err) {
+    console.error('Error en la estrategia de Google OAuth:', err);
     return done(err); // Manejo de errores
   }
 }));
 
 passport.serializeUser((user, done) => {
-  console.log('Serializando usuario:', user.id); // Verificar que se está serializando correctamente
+  console.log('Serializando usuario:', user.id);
   done(null, user.id);
 });
 
@@ -38,13 +41,10 @@ passport.deserializeUser(async (id, done) => {
     if (!user) {
       return done(new Error('Usuario no encontrado en la base de datos'), null);
     }
-    console.log('Usuario deserializado:', user); // Asegúrate de que el usuario es correcto
+    console.log('Usuario deserializado:', user);
     done(null, user);
   } catch (err) {
     console.error('Error durante la deserialización del usuario:', err);
     done(err, null);
   }
 });
-
-
-
