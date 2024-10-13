@@ -1,0 +1,16 @@
+# Ignorar el archivo de configuración de entorno
+.env
+
+# Ignorar la carpeta node_modules, que puede ser regenerada a partir de package.json
+node_modules/
+
+# Ignorar archivos de bloqueo que son específicos para la instalación local
+package-lock.json
+
+# Ignorar carpetas de logs (opcional)
+logs/
+*.log
+
+# Ignorar archivos de sistema de macOS y Linux (opcional)
+.DS_Store
+
